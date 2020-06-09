@@ -29,7 +29,13 @@ const concerts = {
     },
 
     getAllConcert: async() =>{
-        const query = `SELECT concert_title, concert_date, concert_image, concert_category FROM ${table} WHERE concertIdx=1`;
+        const query = `SELECT concertIdx, concert_title, concert_date, concert_image, concert_tag FROM ${table}`;
+        try{
+            const result = await pool.queryParam(query);
+            return result;
+        }catch(err){
+            console.log('getAllConcert err'+ err);
+        }throw err;
     }
 
 //     todaycon: async(concert_date) =>{
