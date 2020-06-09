@@ -26,6 +26,10 @@ const concerts = {
             console.log('isConcertIdx err' + err);
             throw err;
         }
+    },
+
+    getAllConcert: async() =>{
+        const query = `SELECT concert_title, concert_date, concert_image, concert_category FROM ${table} WHERE concertIdx=1`;
     }
 
 //     todaycon: async(concert_date) =>{
