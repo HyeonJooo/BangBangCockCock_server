@@ -17,5 +17,11 @@ module.exports = {
     readMostLike : async(req, res) =>{
         const data = await concert.getMostLike();
         return await res.status(200).send(util.success(200, "좋아요순 조회 성공", data));
+    },
+
+    readTodayConcert : async(req, res) =>{
+        const today = moment().format('YYYY-MM-DD');
+        const result = await concert.getTodayConcert(today);
+        return await res.status(200).send(util.success(200, "오늘 열리는 콘서트 조회 성공", result));
     }
 }
