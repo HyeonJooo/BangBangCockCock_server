@@ -36,6 +36,10 @@ const concerts = {
         }catch(err){
             console.log('getAllConcert err'+ err);
         }throw err;
+    },
+
+    getMostLike: async() =>{
+        const query = `SELECT concertIdx, concert_title, concert_date, concert_img, concert_category FROM ${table}`
     }
 
 //     todaycon: async(concert_date) =>{

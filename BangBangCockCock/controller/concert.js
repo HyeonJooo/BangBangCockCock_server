@@ -12,5 +12,10 @@ module.exports = {
     readAllConcert : async(req, res) => {
         const data = await concert.getAllConcert();
         return await res.status(200).send(util.success(200, "모든 콘서트 정보 가져오기 성공", data));
+    },
+
+    readMostLike : async(req, res) =>{
+        const data = await concert.getMostLike();
+        return await res.status(200).send(util.success(200, "좋아요순 조회 성공", data));
     }
 }
