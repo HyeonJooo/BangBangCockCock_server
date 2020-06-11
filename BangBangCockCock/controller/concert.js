@@ -24,5 +24,11 @@ module.exports = {
         const today = moment().format('YYYY-MM-DD');
         const result = await concert.getTodayConcert(today);
         return await res.status(200).send(util.success(200, "오늘 열리는 콘서트 조회 성공", result));
+    },
+
+    readOneConcert : async(req, res) =>{
+        const {concertIdx} = req.params;
+        const data = await concert.getOneConcert(concertIdx);
+        return await res.status(200).send(util.success(200, "콘서트 정보 가져오기 성공", data));
     }
 }

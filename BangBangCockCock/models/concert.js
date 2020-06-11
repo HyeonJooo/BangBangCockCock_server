@@ -38,17 +38,38 @@ const concerts = {
         }throw err;
     },
 
-    // getMostLike: async() =>{
-    //     const query = `SELECT concertIdx, concert_title, concert_date, concert_img, concert_category FROM ${table} ORDER BY `
-    // },
+    getMostLike: async() =>{
+        const query = `SELECT concertIdx, concert_title, concert_date, concert_image, concert_category 
+                        FROM ${table}`;
+        try{
+            const result = await pool.queryParam(query);
+            return result;
+        }catch(err){
+            console.log('getMostLike err' + err);
+        }throw err;
+    },
 
     getTodayConcert: async(concert_date) =>{
-        const query = `SELECT concertIdx, concert_title, concert_date, concert_image, concert_tag FROM ${table} WHERE concert_date = "2020-06-11"`;
+        const query = `SELECT concertIdx, concert_title, concert_date, concert_image, concert_tag 
+                        FROM ${table} 
+                        WHERE concert_date = "2020-06-11"`;
         try{
             const result = await pool.queryParam(query);
             return result;
         }catch(err){
             console.log('getTodayConcert err' + err);
+        }throw err;
+    },
+
+    getOneConcert: async(concertIdx) =>{
+        const query = `SELECT concertIdx, concert_title, concert_image, concert_link, concert_content,
+        concert_startTime, concert_endTime, concert_date, concert_gif, concert_category, concert_tag
+                        FROM ${table} WHERE concertIdx=${concertIdx}`;
+        try{
+            const result = await pool.queryParam(query);
+            return result;
+        }catch(err){
+            console.log('getOneConcert err' + err);
         }throw err;
     }
 

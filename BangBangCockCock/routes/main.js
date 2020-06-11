@@ -7,13 +7,9 @@ router.get('/banner', concertController.getBanner);
 router.get('/like/:concertIdx', likeController.getLike);
 router.put('/like', likeController.toggleLike);
 router.get('/', concertController.readAllConcert);
-router.get('/likeData', concertController.readMostLike);
+router.get('/mostlike', concertController.readMostLike);
 router.get('/todayconcert', concertController.readTodayConcert);
-// router.get('/todayConcert', async (req, res) =>{
-//   const {concert_date} = req.body;
-//   let today = moment(new Date());
-//   const result = await concert.todaycon(concert_date);
-//   return await res.status(200).send(util.success(200, "오늘열리는 콘서트", {todaycon:result}));
-// });
+router.get('/:concertIdx', concertController.readOneConcert);
+
 
 module.exports = router;
