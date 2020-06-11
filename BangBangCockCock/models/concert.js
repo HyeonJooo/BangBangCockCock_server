@@ -42,8 +42,8 @@ const concerts = {
     //     const query = `SELECT concertIdx, concert_title, concert_date, concert_img, concert_category FROM ${table} ORDER BY `
     // },
 
-    getTodayConcert : async(concert_date) =>{
-        const query = `SELECT concertIdx, concert_title, concert_date, concert_image, concert_tag FROM ${table} WHERE concert_date = "${concert_date}"`;
+    getTodayConcert: async(concert_date) =>{
+        const query = `SELECT concertIdx, concert_title, concert_date, concert_image, concert_tag FROM ${table} WHERE concert_date = "2020-06-11"`;
         try{
             const result = await pool.queryParam(query);
             return result;

@@ -8,6 +8,7 @@ router.get('/like/:concertIdx', likeController.getLike);
 router.put('/like', likeController.toggleLike);
 router.get('/', concertController.readAllConcert);
 router.get('/likeData', concertController.readMostLike);
+router.get('/todayconcert', concertController.readTodayConcert);
 // router.get('/todayConcert', async (req, res) =>{
 //   const {concert_date} = req.body;
 //   let today = moment(new Date());
