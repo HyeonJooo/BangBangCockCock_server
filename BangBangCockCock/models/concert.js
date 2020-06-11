@@ -71,6 +71,17 @@ const concerts = {
         }catch(err){
             console.log('getOneConcert err' + err);
         }throw err;
+    },
+
+    getCategory: async(category) =>{
+        const query = `SELECT concertIdx, concert_title, concert_date, concert_image, concert_tag
+                        FROM ${table} WHERE concert_category = "${category}"`;
+        try{
+            const result = await pool.queryParam(query);
+            return result;
+        }catch(err){
+            console.log('getCategory err' + err);
+        }throw err;
     }
 
 

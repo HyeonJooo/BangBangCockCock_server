@@ -30,5 +30,11 @@ module.exports = {
         const {concertIdx} = req.params;
         const data = await concert.getOneConcert(concertIdx);
         return await res.status(200).send(util.success(200, "콘서트 정보 가져오기 성공", data));
+    },
+
+    readCategory : async(req, res) =>{
+        const {category}  = req.params;
+        const data = await concert.getCategory(category);
+        return await res.status(200).send(util.success(200, "카테고리별 조회 성공", data));
     }
 }

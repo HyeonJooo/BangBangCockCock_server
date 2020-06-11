@@ -10,6 +10,7 @@ router.get('/', concertController.readAllConcert);
 router.get('/mostlike', concertController.readMostLike);
 router.get('/todayconcert', concertController.readTodayConcert);
 router.get('/:concertIdx', concertController.readOneConcert);
+router.get('/filter/:category', concertController.readCategory);
 
 
 module.exports = router;
